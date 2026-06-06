@@ -577,21 +577,29 @@ function simulate() {
   let matches = [];
   const used = new Set();
   let pts = 0, gGF = 0, gGA = 0;
-
+  
   // Il ciclo fa 6 partite, una per ogni avversario
   for(let i = 0; i < 6; i++) {
     const rival = pickRivalByPond(80, used);
-
+    if (!rival) break;
     used.add(rival.key);
-
+    
     const m = playMatch(myAtk, myDef, rival.pond, false);
     gGF += m.gFor; gGA += m.gAg;
-
-@@ -596,153 +61,15 @@ <h2 style="margin-top:6px">Scegli il giocatore</h2>
+    
+    if(m.adv === true) pts += 3;
+    else if(m.adv === null) pts += 1;
+    
+    matches.push({
+      phase: 'Giornata ' + (i + 1),
+      rival: rival.team,
+      gf: m.gFor, ga: m.gAg,
+      outcome: m.adv === true ? 'win' : (m.adv === false ? 'lost' : 'draw'),
+      advanced: true
     });
   }
 
-  // Risultato finale: calcolo posizionamento basato sui punti (max 18)
+  // Risultato finale
   let pos = pts >= 15 ? 1 : (pts >= 12 ? 2 : (pts >= 9 ? 3 : 4));
   
   showResults({
