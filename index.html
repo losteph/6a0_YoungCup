@@ -6,7 +6,7 @@
 <title>7 a 0 · Edizione Young Cup</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap');
-:root{--cream:#f3ecdc;--ink:#191512;--sky:#6cace4;--sky-deep:#2f6db0;--gold:#d4a72c;--red:#0f8a44; /* Cambiato il rosso in un verde prato per stile torneo */ --green:#1c7a47;--line:#d9cdb0;--panel:#fff;}
+:root{--cream:#f3ecdc;--ink:#191512;--sky:#6cace4;--sky-deep:#2f6db0;--gold:#d4a72c;--red:#0f8a44; --green:#1c7a47;--line:#d9cdb0;--panel:#fff;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--cream);color:var(--ink);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
 .app{max-width:1100px;margin:0 auto;padding:0 16px 50px;}
@@ -120,7 +120,6 @@ header .hwrap{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;align-i
 .close-btn{font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;background:var(--ink);color:var(--cream);border:none;border-radius:6px;padding:12px;width:100%;cursor:pointer;margin-top:10px;font-size:1rem;}
 .hint{font-family:'Barlow Condensed';font-size:.82rem;color:#8a8067;text-align:center;margin-top:8px;}
 .rival-badge{display:inline-block;font-family:'Barlow Condensed';font-weight:700;font-size:.7rem;padding:1px 7px;border-radius:8px;border:1px solid rgba(0,0,0,.15);margin-left:4px;}
-/* Position picker */
 .picker{position:fixed;inset:0;background:rgba(10,20,35,.55);display:none;align-items:center;justify-content:center;z-index:60;padding:20px;}
 .picker.show{display:flex;}
 .picker-box{background:#fff;border-radius:12px;padding:22px;max-width:340px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.3);animation:cardIn .25s ease;}
@@ -175,14 +174,12 @@ header .hwrap{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;align-i
 <div class="picker" id="picker"><div class="picker-box"><h3 id="pkTitle">Dove lo metti?</h3><div class="psub" id="pkSub"></div><div id="pkOpts"></div><button class="pick-cancel" onclick="closePicker()">Annulla</button></div></div>
 <div class="picker" id="dtPicker"><div class="picker-box"><h3>Scelta del Mister</h3><div class="psub">Sono usciti 3 allenatori. Scegli la tua filosofia:</div><div id="dtOpts"></div></div></div>
 <div class="overlay" id="overlay"><div class="results" id="resultsBox"></div></div>
+
 <script>
-// -------------------------------------------------------------
-// 1. I TUOI GIOCATORI DA DRAFTARE (IL POOL)
-// Formato: ["Nome Giocatore", "Squadra", Anno, ["Ruoli"], Overall, Stella(true/false)]
-// -------------------------------------------------------------
+// --- DATI DEI GIOCATORI ---
 const DATA = [
   // WILD BOYS (Maglia Bianca)
-  ["Pierluigi De Marco'", "wild boys", 2026, ["POR"], 80, false],
+  ["Pierluigi De Marco", "wild boys", 2026, ["POR"], 80, false],
   ["Andrea Fundone", "wild boys", 2026, ["DIF"], 77, false],
   ["Michele Scoppio", "wild boys", 2026, ["DIF"], 67, false],
   ["Fabrizio Lorini", "wild boys", 2026, ["DIF"], 64, false],
@@ -195,7 +192,7 @@ const DATA = [
 
   // SANGU FC (Maglia Nera)
   ["Pasquale Iannelli", "sangu FC", 2026, ["POR"], 83, true],
-  ["Matteo Daniele", "sangu FC", 2026, ["DIF"], 83, true], // Stella
+  ["Matteo Daniele", "sangu FC", 2026, ["DIF"], 83, true],
   ["Gabriele Pedacchio", "sangu FC", 2026, ["DIF"], 70, false],
   ["Gerardo Teutonico", "sangu FC", 2026, ["DIF"], 76, false],
   ["Giovanni Corso", "sangu FC", 2026, ["DIF"], 63, false],
@@ -210,7 +207,7 @@ const DATA = [
   ["Gianluca Audiello", "marlboro goal", 2026, ["DIF"], 63, false],
   ["Cataldo Sapio", "marlboro goal", 2026, ["DIF"], 80, true],
   ["Giuseppe Pepe", "marlboro goal", 2026, ["DIF"], 75, false],
-  ["Marco Montrano", "marlboro goal", 2026, ["CC"], 81, true], // Stella
+  ["Marco Montrano", "marlboro goal", 2026, ["CC"], 81, true],
   ["Riccardo Roscica", "marlboro goal", 2026, ["CC"], 64, false],
   ["Adriano Pio Darcangelo", "marlboro goal", 2026, ["ATT"], 73, false],
   ["Cosimo D'Onghia", "marlboro goal", 2026, ["ATT"], 75, false],
@@ -221,7 +218,7 @@ const DATA = [
   ["Stefano Di Lena", "real mydrip", 2026, ["DIF"], 66, false],
   ["Marco Accetta", "real mydrip", 2026, ["DIF"], 82, true],
   ["Mario Mezzina", "real mydrip", 2026, ["DIF"], 64, false],
-  ["Alessandro Solazzo", "real mydrip", 2026, ["CC"], 86, true], // Stella
+  ["Alessandro Solazzo", "real mydrip", 2026, ["CC"], 86, true],
   ["Giovanni Meuli", "real mydrip", 2026, ["CC"], 78, false],
   ["Manuel Flores", "real mydrip", 2026, ["ATT"], 85, true],
   ["Mauro Origlia", "real mydrip", 2026, ["ATT"], 65, false],
@@ -240,7 +237,7 @@ const DATA = [
   ["Marco Amodio", "trigloditi", 2026, ["CC", "ATT"], 82, false],
 
   // IMPERIAL SEVEN (Maglia Verde)
-  ["Alessandro Guerra", "imperial seven", 2026, ["POR"], 84, true], // Stella
+  ["Alessandro Guerra", "imperial seven", 2026, ["POR"], 84, true],
   ["Fabiano Tafaro", "imperial seven", 2026, ["DIF"], 78, false],
   ["Mario Rizzo", "imperial seven", 2026, ["DIF"], 80, false],
   ["Gabriele Ferrandino", "imperial seven", 2026, ["DIF", "CC"], 85, false],
@@ -251,119 +248,104 @@ const DATA = [
   ["JJ Zigrino", "imperial seven", 2026, ["DIF", "CC", "ATT"], 86, true]
 ];
 
-// -------------------------------------------------------------
-// 2. LE TUE SQUADRE (COLORI E INFO PER IL DRAFT)
-// -------------------------------------------------------------
 const META = {
-  "wild boys 2026": { pond: 82, bg: "#ffffff", text: "#800080", team: "Wild Boys", year: 2026, hito: "I ragazzi selvaggi" },
-  "sangu FC 2026": { pond: 85, bg: "#000000", text: "#ff0000", team: "Sangu FC", year: 2026, hito: "Sangue, sudore e lacrime" },
-  "marlboro goal 2026": { pond: 80, bg: "#ff0000", text: "#000000", team: "Marlboro Goal", year: 2026, hito: "Un polmone a testa" },
-  "real mydrip 2026": { pond: 86, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Born to flex" },
-  "trigloditi 2026": { pond: 78, bg: "#40e0d0", text: "#ffffff", team: "Trigloditi", year: 2026, hito: "Calcio d'altri tempi" },
-  "imperial seven 2026": { pond: 84, bg: "#008000", text: "#3b2f2f", team: "Imperial Seven", year: 2026, hito: "I conquistatori del campetto" }
+  "wild boys 2026": { pond: 80, bg: "#ffffff", text: "#800080", team: "Wild Boys", year: 2026, hito: "I ragazzi selvaggi" },
+  "sangu FC 2026": { pond: 81, bg: "#000000", text: "#ff0000", team: "Sangu FC", year: 2026, hito: "Sangue, sudore e lacrime" },
+  "marlboro goal 2026": { pond: 80, bg: "#ff0000", text: "#000000", team: "Marlboro Goal", year: 2026, hito: "Un polmone e mezzo a testa" },
+  "real mydrip 2026": { pond: 79, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Stile in campo, zero punti" },
+  "trigloditi 2026": { pond: 79, bg: "#40e0d0", text: "#ffffff", team: "Trigloditi", year: 2026, hito: "Calcio d'altri tempi" },
+  "imperial seven 2026": { pond: 82, bg: "#008000", text: "#ffffff", team: "Imperial Seven", year: 2026, hito: "I conquistatori del campetto" }
 };
 
-// -------------------------------------------------------------
-// 3. I TUOI AVVERSARI NELLA SIMULAZIONE
-// Copia qui le formazioni reali per farle affrontare dalla tua super-squadra
-// (Formato identico a DATA)
-// -------------------------------------------------------------
 const RIVAL_DATA = [
   // WILD BOYS
-  ["Leo 'Saracinesca'", "wild boys", 2026, ["POR"], 82],
-  ["Ale 'Muro'", "wild boys", 2026, ["DC", "DCS"], 84],
-  ["Fra 'Pendolino'", "wild boys", 2026, ["TS", "ES"], 79],
-  ["Marco 'Treno'", "wild boys", 2026, ["TD", "ED"], 81],
-  ["Dani 'Il Maestro'", "wild boys", 2026, ["CC", "CD", "CS"], 88],
-  ["Simo 'Trattore'", "wild boys", 2026, ["CC"], 77],
-  ["Gio 'Furetto'", "wild boys", 2026, ["ED", "CD"], 80],
-  ["Andrea 'Cecchino'", "wild boys", 2026, ["ATT"], 85],
-  ["Nico 'Rapace'", "wild boys", 2026, ["ATT"], 76],
-  ["Pippo 'Riserva'", "wild boys", 2026, ["POR"], 74],
+  ["Pierluigi De Marco", "wild boys", 2026, ["POR"], 80],
+  ["Andrea Fundone", "wild boys", 2026, ["DIF"], 77],
+  ["Michele Scoppio", "wild boys", 2026, ["DIF"], 67],
+  ["Fabrizio Lorini", "wild boys", 2026, ["DIF"], 64],
+  ["Luigi Vaira", "wild boys", 2026, ["DIF"], 71], 
+  ["Alessandro del Giudice", "wild boys", 2026, ["CC"], 75],
+  ["Lorenzo Milfa", "wild boys", 2026, ["CC", "ATT"], 86],
+  ["Lorenzo Gentile", "wild boys", 2026, ["ATT"], 88],
+  ["Carlo Basile", "wild boys", 2026, ["ATT"], 64],
+  ["Domenico Jr. Centrone", "wild boys", 2026, ["DIF", "CC", "ATT"], 83],
 
   // SANGU FC
-  ["Gianlu 'Ragno'", "sangu FC", 2026, ["POR"], 85],
-  ["Max 'Macellaio'", "sangu FC", 2026, ["DC", "DCD"], 86],
-  ["Fede 'Tackle'", "sangu FC", 2026, ["DCS", "TS"], 82],
-  ["Tommy 'Corsa'", "sangu FC", 2026, ["TD", "CC"], 78],
-  ["Lollo 'Polmone'", "sangu FC", 2026, ["CC"], 84],
-  ["Edo 'Visione'", "sangu FC", 2026, ["CS", "CC"], 81],
-  ["Ricky 'Estro'", "sangu FC", 2026, ["ES", "ATT"], 83],
-  ["Mati 'Boa'", "sangu FC", 2026, ["ATT"], 80],
-  ["Samu 'Punta'", "sangu FC", 2026, ["ATT"], 77],
-  ["Davide 'Gatto'", "sangu FC", 2026, ["POR"], 75],
+  ["Pasquale Iannelli", "sangu FC", 2026, ["POR"], 83],
+  ["Matteo Daniele", "sangu FC", 2026, ["DIF"], 83],
+  ["Gabriele Pedacchio", "sangu FC", 2026, ["DIF"], 70],
+  ["Gerardo Teutonico", "sangu FC", 2026, ["DIF"], 76],
+  ["Giovanni Corso", "sangu FC", 2026, ["DIF"], 63],
+  ["Daniel Sandu", "sangu FC", 2026, ["CC"], 81],
+  ["Mattia Ieva", "sangu FC", 2026, ["CC"], 87],
+  ["Mattia Pandolfi", "sangu FC", 2026, ["CC", "ATT"], 80],
+  ["Angelo Anatilopan", "sangu FC", 2026, ["ATT"], 73],
+  ["Dylan Todisco", "sangu FC", 2026, ["DIF", "CC", "ATT"], 78],
 
   // MARLBORO GOAL
-  ["Gigi 'Smoker'", "marlboro goal", 2026, ["POR"], 79],
-  ["Vale 'Fumo'", "marlboro goal", 2026, ["DC"], 81],
-  ["Cata 'Catena'", "marlboro goal", 2026, ["DCD", "TD"], 78],
-  ["Lore 'Zingaro'", "marlboro goal", 2026, ["DCS", "TS"], 76],
-  ["Pietro 'Soffio'", "marlboro goal", 2026, ["CC", "CD"], 85],
-  ["Vince 'Zanzara'", "marlboro goal", 2026, ["CC", "CS"], 82],
-  ["Salvo 'Scatto'", "marlboro goal", 2026, ["ED", "ATT"], 80],
-  ["Giaco 'Bomber'", "marlboro goal", 2026, ["ATT"], 84],
-  ["Enri 'Sponda'", "marlboro goal", 2026, ["ATT"], 79],
-  ["Alfio 'Panca'", "marlboro goal", 2026, ["DC", "CC"], 75],
+  ["Gabriele Maci", "marlboro goal", 2026, ["POR"], 85],
+  ["Gianluca Audiello", "marlboro goal", 2026, ["DIF"], 63],
+  ["Cataldo Sapio", "marlboro goal", 2026, ["DIF"], 80],
+  ["Giuseppe Pepe", "marlboro goal", 2026, ["DIF"], 75],
+  ["Marco Montrano", "marlboro goal", 2026, ["CC"], 81],
+  ["Riccardo Roscica", "marlboro goal", 2026, ["CC"], 64],
+  ["Adriano Pio Darcangelo", "marlboro goal", 2026, ["ATT"], 73],
+  ["Cosimo D'Onghia", "marlboro goal", 2026, ["ATT"], 75],
+  ["Michele Ventola", "marlboro goal", 2026, ["CC", "ATT"], 89],
 
   // REAL MYDRIP
-  ["Dario 'Style'", "real mydrip", 2026, ["POR"], 81],
-  ["Tito 'Elegante'", "real mydrip", 2026, ["DC", "DCS", "DCD"], 85],
-  ["Rocco 'Fashion'", "real mydrip", 2026, ["TD", "ED"], 82],
-  ["Miki 'Freccia'", "real mydrip", 2026, ["TS", "ES"], 80],
-  ["Tony 'Regista'", "real mydrip", 2026, ["CC"], 87],
-  ["Manu 'Dribbling'", "real mydrip", 2026, ["CD", "CC"], 84],
-  ["Sebi 'Magia'", "real mydrip", 2026, ["CS", "CC"], 83],
-  ["Igor 'Goleador'", "real mydrip", 2026, ["ATT"], 86],
-  ["Loris 'Falso Nueve'", "real mydrip", 2026, ["ATT", "CC"], 81],
-  ["Yuri 'Vice'", "real mydrip", 2026, ["POR"], 76],
+  ["Vincenzo Russo", "real mydrip", 2026, ["POR"], 81],
+  ["Stefano Di Lena", "real mydrip", 2026, ["DIF"], 66],
+  ["Marco Accetta", "real mydrip", 2026, ["DIF"], 82],
+  ["Mario Mezzina", "real mydrip", 2026, ["DIF"], 64],
+  ["Alessandro Solazzo", "real mydrip", 2026, ["CC"], 86],
+  ["Giovanni Meuli", "real mydrip", 2026, ["CC"], 78],
+  ["Manuel Flores", "real mydrip", 2026, ["ATT"], 85],
+  ["Mauro Origlia", "real mydrip", 2026, ["ATT"], 65],
+  ["Luigi Barbone", "real mydrip", 2026, ["DIF", "ATT", "CC"], 75],
 
   // TRIGLODITI
-  ["Berto 'Clava'", "trigloditi", 2026, ["POR"], 77],
-  ["Gino 'Roccia'", "trigloditi", 2026, ["DC"], 83],
-  ["Pino 'Tronco'", "trigloditi", 2026, ["DCD", "TD"], 78],
-  ["Nino 'Randello'", "trigloditi", 2026, ["DCS", "TS"], 76],
-  ["Ugo 'Grezzo'", "trigloditi", 2026, ["CC"], 79],
-  ["Lino 'Lotta'", "trigloditi", 2026, ["CC", "CD", "CS"], 81],
-  ["Mino 'Cinghiale'", "trigloditi", 2026, ["ATT", "ES"], 84],
-  ["Dino 'Furia'", "trigloditi", 2026, ["ATT"], 80],
-  ["Rino 'Mazzata'", "trigloditi", 2026, ["ATT", "ED"], 77],
-  ["Tino 'Spalla'", "trigloditi", 2026, ["CC"], 74],
+  ["Matia Shehu", "trigloditi", 2026, ["POR"], 77],
+  ["Luca Padovano", "trigloditi", 2026, ["DIF"], 78],
+  ["Stefano Vidali", "trigloditi", 2026, ["DIF"], 77],
+  ["Andrea Capuzzolo", "trigloditi", 2026, ["DIF"], 76],
+  ["Francesco Albanese", "trigloditi", 2026, ["DIF"], 75],
+  ["Gianluca Chiappinelli", "trigloditi", 2026, ["CC"], 81],
+  ["Francesco Santamaria", "trigloditi", 2026, ["CC"], 79],
+  ["Raffaele Guerra", "trigloditi", 2026, ["ATT"], 78],
+  ["Mattia Mavelli", "trigloditi", 2026, ["ATT", "DIF"], 72],
+  ["Marco Amodio", "trigloditi", 2026, ["CC", "ATT"], 82],
 
   // IMPERIAL SEVEN
-  ["Cesare 'Imperatore'", "imperial seven", 2026, ["POR"], 86],
-  ["Augusto 'Scudo'", "imperial seven", 2026, ["DC", "DCD", "DCS"], 85],
-  ["Tiberio 'Coda'", "imperial seven", 2026, ["TD", "TS"], 81],
-  ["Nerone 'Fiamma'", "imperial seven", 2026, ["CC"], 84],
-  ["Traiano 'Costruttore'", "imperial seven", 2026, ["CC", "CD"], 82],
-  ["Adriano 'Muro'", "imperial seven", 2026, ["CS", "CC"], 80],
-  ["Marco 'Aurelio'", "imperial seven", 2026, ["ED", "ES"], 83],
-  ["Commodo 'Gladio'", "imperial seven", 2026, ["ATT"], 85],
-  ["Costantino 'Cruce'", "imperial seven", 2026, ["ATT"], 82],
-  ["Giulio 'VeniVidi'", "imperial seven", 2026, ["DCS", "CC"], 78]
+  ["Alessandro Guerra", "imperial seven", 2026, ["POR"], 84],
+  ["Fabiano Tafaro", "imperial seven", 2026, ["DIF"], 78],
+  ["Mario Rizzo", "imperial seven", 2026, ["DIF"], 80],
+  ["Gabriele Ferrandino", "imperial seven", 2026, ["DIF", "CC"], 85],
+  ["Antonio Iasiello", "imperial seven", 2026, ["CC"], 79],
+  ["Matteo Sembenini", "imperial seven", 2026, ["CC"], 71],
+  ["Flavio Carbone", "imperial seven", 2026, ["ATT"], 84],
+  ["Antonio Fuzio", "imperial seven", 2026, ["ATT"], 77],
+  ["JJ Zigrino", "imperial seven", 2026, ["DIF", "CC", "ATT"], 86]
 ];
 
 const RIVAL_META = {
-  "wild boys 2026": { pond: 82, bg: "#ffffff", text: "#800080", team: "Wild Boys", year: 2026, hito: "I ragazzi selvaggi" },
-  "sangu FC 2026": { pond: 85, bg: "#000000", text: "#ff0000", team: "Sangu FC", year: 2026, hito: "Sangue, sudore e lacrime" },
-  "marlboro goal 2026": { pond: 80, bg: "#ff0000", text: "#000000", team: "Marlboro Goal", year: 2026, hito: "Un polmone a testa" },
-  "real mydrip 2026": { pond: 86, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Born to flex" },
-  "trigloditi 2026": { pond: 78, bg: "#40e0d0", text: "#ffffff", team: "Trigloditi", year: 2026, hito: "Calcio d'altri tempi" },
-  "imperial seven 2026": { pond: 84, bg: "#008000", text: "#3b2f2f", team: "Imperial Seven", year: 2026, hito: "I conquistatori del campetto" }
+  "wild boys 2026": { pond: 80, bg: "#ffffff", text: "#800080", team: "Wild Boys", year: 2026, hito: "I ragazzi selvaggi" },
+  "sangu FC 2026": { pond: 81, bg: "#000000", text: "#ff0000", team: "Sangu FC", year: 2026, hito: "Sangue, sudore e lacrime" },
+  "marlboro goal 2026": { pond: 80, bg: "#ff0000", text: "#000000", team: "Marlboro Goal", year: 2026, hito: "Un polmone e mezzo a testa" },
+  "real mydrip 2026": { pond: 79, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Stile in campo, zero punti" },
+  "trigloditi 2026": { pond: 79, bg: "#40e0d0", text: "#ffffff", team: "Trigloditi", year: 2026, hito: "Calcio d'altri tempi" },
+  "imperial seven 2026": { pond: 82, bg: "#008000", text: "#ffffff", team: "Imperial Seven", year: 2026, hito: "I conquistatori del campetto" }
 };
 
-// -------------------------------------------------------------
-// 4. MISTER (Puoi divertirti a inventare gli stili per i tuoi mister)
-// of = Offensivo, def = Difensivo, eq = Equilibrato, win = Rigorista/Motivatore
-// -------------------------------------------------------------
 const DTS_DATA = {
   "dts":[
     {"name":"Paolo Almiento","style":"win"},
+    {"name":"Dudi Di Ruberto","style":"win"},
+    {"name":"Michele Calderoni","style":"eq"},
+    {"name":"Domenico Tiritiello","style":"def"},
     {"name":"Jonathan Cuccaro","style":"of"},
     {"name":"Gabriele Lanza","style":"eq"},
-    {"name":"Dudi Di Ruberto","style":"win"},
-    {"name":"Domenico Tiritiello","style":"def"},
-    {"name":"Michele Calderoni","style":"eq"},
-    {"name":"Marco Cucinelli","style":"of"}
+    {"name":"Marco Cucinelli","style":"eq"}
   ],
   "styleInfo":{
     "of":{"nombre":"Tutto all'attacco","desc":"+ Attacco","emoji":"⚔️"},
@@ -373,62 +355,46 @@ const DTS_DATA = {
   }
 };
 
-// -------------------------------------------------------------
-// 5. I NUOVI MODULI A 7 (Calcio a 7)
-// -------------------------------------------------------------
 const FORM_SLOTS = {
   '321': [
-    {id:'GK', lab:'POR', grp:'GK', side:'C', row:0},
-    {id:'TS', lab:'TS', grp:'DEF', side:'L', row:1, dy:-8}, 
-    {id:'DC', lab:'DC', grp:'DEF', side:'C', row:1, dy:8}, 
-    {id:'TD', lab:'TD', grp:'DEF', side:'R', row:1, dy:-8},
-    {id:'CC1', lab:'CC', grp:'MID', side:'C', row:2, dy:-8}, 
-    {id:'CC2', lab:'CC', grp:'MID', side:'C', row:2, dy:8},
-    {id:'ATT', lab:'ATT', grp:'ATT', side:'C', row:3, dy:0}
+    {id:'GK', lab:'POR', grp:'GK', row:0},
+    {id:'TS', lab:'TS', grp:'DEF', row:1, dy:-8}, 
+    {id:'DC', lab:'DC', grp:'DEF', row:1, dy:8}, 
+    {id:'TD', lab:'TD', grp:'DEF', row:1, dy:-8},
+    {id:'CC1', lab:'CC', grp:'MID', row:2, dy:-8}, 
+    {id:'CC2', lab:'CC', grp:'MID', row:2, dy:8},
+    {id:'ATT', lab:'ATT', grp:'ATT', row:3, dy:0}
   ],
   '231': [
-    {id:'GK', lab:'POR', grp:'GK', side:'C', row:0},
-    {id:'DCS', lab:'DCS', grp:'DEF', side:'L', row:1, dy:0}, 
-    {id:'DCD', lab:'DCD', grp:'DEF', side:'R', row:1, dy:0},
-    {id:'ES', lab:'ES', grp:'MID', side:'L', row:2, dy:-8}, 
-    {id:'CC', lab:'CC', grp:'MID', side:'C', row:2, dy:8}, 
-    {id:'ED', lab:'ED', grp:'MID', side:'R', row:2, dy:-8},
-    {id:'ATT', lab:'ATT', grp:'ATT', side:'C', row:3, dy:0}
+    {id:'GK', lab:'POR', grp:'GK', row:0},
+    {id:'DCS', lab:'DCS', grp:'DEF', row:1, dy:0}, 
+    {id:'DCD', lab:'DCD', grp:'DEF', row:1, dy:0},
+    {id:'ES', lab:'ES', grp:'MID', row:2, dy:-8}, 
+    {id:'CC', lab:'CC', grp:'MID', row:2, dy:8}, 
+    {id:'ED', lab:'ED', grp:'MID', row:2, dy:-8},
+    {id:'ATT', lab:'ATT', grp:'ATT', row:3, dy:0}
   ],
   '222': [
-    {id:'GK', lab:'POR', grp:'GK', side:'C', row:0},
-    {id:'DCS', lab:'DCS', grp:'DEF', side:'L', row:1, dy:0}, 
-    {id:'DCD', lab:'DCD', grp:'DEF', side:'R', row:1, dy:0},
-    {id:'CS', lab:'CS', grp:'MID', side:'L', row:2, dy:0}, 
-    {id:'CD', lab:'CD', grp:'MID', side:'R', row:2, dy:0},
-    {id:'ATTS', lab:'ATT', grp:'ATT', side:'L', row:3, dy:0},
-    {id:'ATTD', lab:'ATT', grp:'ATT', side:'R', row:3, dy:0}
+    {id:'GK', lab:'POR', grp:'GK', row:0},
+    {id:'DCS', lab:'DCS', grp:'DEF', row:1, dy:0}, 
+    {id:'DCD', lab:'DCD', grp:'DEF', row:1, dy:0},
+    {id:'CS', lab:'CS', grp:'MID', row:2, dy:0}, 
+    {id:'CD', lab:'CD', grp:'MID', row:2, dy:0},
+    {id:'ATTS', lab:'ATT', grp:'ATT', row:3, dy:0},
+    {id:'ATTD', lab:'ATT', grp:'ATT', row:3, dy:0}
   ]
 };
 
 const GRP_ORDER=['GK','DEF','MID','ATT'];
 const GRP_NAME={GK:'Portieri',DEF:'Difensori',MID:'Centrocampisti',ATT:'Attaccanti'};
-const SIDE_NAME={L:'Sinistra',R:'Destra',C:'Centro'};
 
-// -------------------------------------------------------------
-// 6. SIGLE E RUOLI AGGIORNATI
-// -------------------------------------------------------------
 const POS_INFO = {
-  POR: {grp:'GK', role:'GK'},
-  TD: {grp:'DEF', role:'LAT', sides:['R']}, 
-  TS: {grp:'DEF', role:'LAT', sides:['L']}, 
-  DC: {grp:'DEF', role:'CEN', sides:['C', 'L', 'R']}, 
-  DCS: {grp:'DEF', role:'CEN', sides:['L', 'C']},
-  DCD: {grp:'DEF', role:'CEN', sides:['R', 'C']},
-  CC: {grp:'MID', role:'MID', sides:['C', 'L', 'R']}, 
-  CD: {grp:'MID', role:'MID', sides:['R', 'C']},
-  CS: {grp:'MID', role:'MID', sides:['L', 'C']},
-  ED: {grp:'MID', role:'MID', sides:['R']},
-  ES: {grp:'MID', role:'MID', sides:['L']},
-  ATT: {grp:'ATT', role:'ATT', sides:['C', 'L', 'R']}
+  POR: {grp:'GK'},
+  DIF: {grp:'DEF'},
+  CC:  {grp:'MID'},
+  ATT: {grp:'ATT'}
 };
 
-// CODICE DI FUNZIONAMENTO (NON TOCCARE A MENO DI NECESSITÀ)
 const players=DATA.map(d=>({name:d[0],team:d[1],year:d[2],positions:d[3],force:d[4],star:d[5]||false}));
 const teamMap={};
 players.forEach(p=>{const k=p.team+' '+p.year;(teamMap[k]=teamMap[k]||[]).push(p);});
@@ -437,24 +403,13 @@ const rivalPlayers=RIVAL_DATA.map(d=>({name:d[0],team:d[1],year:d[2],positions:d
 const rivalMap={};
 rivalPlayers.forEach(p=>{const k=p.team+' '+p.year;(rivalMap[k]=rivalMap[k]||[]).push(p);});
 
-// Aggiorna contatore nell'interfaccia
 document.getElementById('teamCount').textContent=teamKeys.length+' squadre · '+players.length+' giocatori';
 
-function playerRoles(p){return [...new Set(p.positions.map(pos=>POS_INFO[pos]?POS_INFO[pos].role:null).filter(Boolean))];}
-function playerGroups(p){return [...new Set(p.positions.map(pos=>POS_INFO[pos]?POS_INFO[pos].grp:null).filter(Boolean))];}
-function playerLatSides(p){const s=new Set();p.positions.forEach(pos=>{const inf=POS_INFO[pos];if(inf&&(inf.role==='LAT'||inf.role==='CEN'||inf.role==='MID'||inf.role==='ATT')&&inf.sides)inf.sides.forEach(x=>s.add(x));});return s;}
-function slotRole(slot){
-  if(slot.grp==='GK')return 'GK';
-  if(slot.grp==='DEF')return (slot.side==='C')?'CEN':'LAT';
-  if(slot.grp==='MID')return 'MID';
-  return 'ATT';
+function playerGroups(p){
+  return [...new Set(p.positions.map(pos=>POS_INFO[pos]?POS_INFO[pos].grp:null).filter(Boolean))];
 }
 function slotAccepts(p,slot){
-  const role=slotRole(slot);
-  if(!playerRoles(p).includes(role))return false;
-  const sides=playerLatSides(p);
-  if(sides.size > 0 && !sides.has(slot.side) && slot.side !== 'C') return false; 
-  return true;
+  return playerGroups(p).includes(slot.grp);
 }
 
 let formation='321',dtStyle='equilibrato',chosenDT=null,rerolls=3,currentTeam=null,lineup={},chosenNames=new Set(),mustDraw=true,pendingPlayer=null,pendingGroup=null;
@@ -504,7 +459,7 @@ function choosePlayer(p){
   if(labOptions.length===1){ placePlayer(p, byLab[labOptions[0]][0].id); return; }
   pendingPlayer=p;
   document.getElementById('pkTitle').textContent=p.name+' · '+p.force;
-  document.getElementById('pkSub').textContent='Può giocare in più ruoli. Scegli:';
+  document.getElementById('pkSub').textContent='Scegli in che zona schierarlo:';
   const opts=document.getElementById('pkOpts');opts.innerHTML='';
   labOptions.forEach(lab=>{
     const group=byLab[lab][0].grp;
@@ -573,7 +528,7 @@ function computeRatings(){
   else if(st==='def'){defense+=2;attack-=0.5;}
   else if(st==='win'){attack+=1;defense+=1;}  
   else{attack+=0.8;defense+=0.8;}                  
-  let chem=0;Object.values(clubCount).forEach(c=>{if(c>=2)chem+=1.0*(c-1);}); // Abbassato a 2 per dare bonus chimica più facile a 7 giocatori
+  let chem=0;Object.values(clubCount).forEach(c=>{if(c>=2)chem+=1.0*(c-1);}); 
   chem=Math.min(chem,3.0);attack+=chem;defense+=chem;
   return {attack:Math.round(attack),defense:Math.round(defense),overall:Math.round((attack+defense)/2),count:gk.length+def.length+mid.length+att.length,chem:Math.round(chem*10)/10};
 }
@@ -583,7 +538,7 @@ const RANKED=Object.entries(RIVAL_META).map(([k,m])=>({key:k,pond:m.pond,bg:m.bg
 function pickRivalByPond(t,ex){
   const cand=RANKED.filter(x=>!ex.has(x.key)).map(x=>({x,d:Math.abs(x.pond-t)})).sort((a,b)=>a.d-b.d);
   if(cand.length===0)return null;
-  const top=cand.slice(0,2); // Cerca i più vicini (ridotto per meno avversari nel database locale)
+  const top=cand.slice(0,2); 
   return top[Math.floor(Math.random()*top.length)].x;
 }
 const GROUP_TARGETS=[80,82,85];            
