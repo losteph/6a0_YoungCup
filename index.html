@@ -1,11 +1,11 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>7 a 0 · Edizione Young Cup</title>
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght=400;500;600;700&family=Barlow:wght=400;500;600;700&display=swap');
 :root{--cream:#f3ecdc;--ink:#191512;--sky:#6cace4;--sky-deep:#2f6db0;--gold:#d4a72c;--red:#0f8a44; --green:#1c7a47;--line:#d9cdb0;--panel:#fff;}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--cream);color:var(--ink);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
@@ -128,7 +128,7 @@ header .hwrap{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;align-i
 .pick-opt{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;padding:12px 16px;margin-bottom:8px;border:1.5px solid var(--line);border-radius:8px;background:#fff;cursor:pointer;font-weight:600;transition:background .12s,border-color .12s;}
 .pick-opt:hover{background:#f0e9d8;border-color:var(--gold);}
 .pick-opt .pk-lab{font-family:'Barlow Condensed';font-weight:700;font-size:1.05rem;}
-.pick-opt .pk-side{font-family:'Barlow Condensed';font-size:.78rem;color:#8a8067;text-transform:uppercase;letter-spacing:.05em;}
+.pick-opt .pk-side覆{font-family:'Barlow Condensed';font-size:.78rem;color:#8a8067;text-transform:uppercase;letter-spacing:.05em;}
 .pick-cancel{width:100%;text-align:center;padding:10px;border:none;background:none;color:#999;cursor:pointer;font-family:'Barlow Condensed';font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
 </style>
 </head>
@@ -136,7 +136,7 @@ header .hwrap{max-width:1100px;margin:0 auto;padding:0 16px;display:flex;align-i
 <header>
   <div class="hwrap">
     <div class="logo">7<span class="z">-</span>0</div>
-    <div class="htext">Young Cup<small>Draft Edition · Crea la tua squadra ideale. Vinci 7 a 0?</small></div>
+    <div class="htext">Young Cup<small>Draft Edition · Crea la tua squadra ideale. Vinci il Campionato?</small></div>
     <div class="stars"><span class="star">⚽</span></div>
   </div>
 </header>
@@ -185,20 +185,20 @@ const DATA = [
   ["Fabrizio Lorini", "wild boys", 2026, ["DIF"], 64, false],
   ["Luigi Vaira", "wild boys", 2026, ["DIF"], 71, false], 
   ["Alessandro del Giudice", "wild boys", 2026, ["CC"], 75, false],
-  ["Lorenzo Milfa", "wild boys", 2026, ["CC"], 86, false],
+  ["Lorenzo Milfa", "wild boys", 2026, ["CC", "ATT"], 86, true],
   ["Lorenzo Gentile", "wild boys", 2026, ["ATT"], 88, true],
   ["Carlo Basile", "wild boys", 2026, ["ATT"], 64, false],
-  ["Domenico Jr. Centrone", "wild boys", 2026, ["DIF", "CC", "ATT"], 83, false],
+  ["Domenico Jr. Centrone", "wild boys", 2026, ["DIF", "CC", "ATT"], 83, true],
 
   // SANGU FC (Maglia Nera)
   ["Pasquale Iannelli", "sangu FC", 2026, ["POR"], 83, true],
-  ["Matteo Daniele", "sangu FC", 2026, ["DIF"], 83, false],
+  ["Matteo Daniele", "sangu FC", 2026, ["DIF"], 83, true],
   ["Gabriele Pedacchio", "sangu FC", 2026, ["DIF"], 70, false],
   ["Gerardo Teutonico", "sangu FC", 2026, ["DIF"], 76, false],
   ["Giovanni Corso", "sangu FC", 2026, ["DIF"], 63, false],
   ["Daniel Sandu", "sangu FC", 2026, ["CC"], 81, false],
-  ["Mattia Ieva", "sangu FC", 2026, ["CC"], 82, false],
-  ["Mattia Pandolfi", "sangu FC", 2026, ["ATT"], 80, false],
+  ["Mattia Ieva", "sangu FC", 2026, ["CC"], 87, true],
+  ["Mattia Pandolfi", "sangu FC", 2026, ["CC", "ATT"], 80, true],
   ["Angelo Anatilopan", "sangu FC", 2026, ["ATT"], 73, false],
   ["Dylan Todisco", "sangu FC", 2026, ["DIF", "CC", "ATT"], 78, false],
 
@@ -207,7 +207,7 @@ const DATA = [
   ["Gianluca Audiello", "marlboro goal", 2026, ["DIF"], 63, false],
   ["Cataldo Sapio", "marlboro goal", 2026, ["DIF"], 80, true],
   ["Giuseppe Pepe", "marlboro goal", 2026, ["DIF"], 75, false],
-  ["Marco Montrano", "marlboro goal", 2026, ["CC"], 81, false],
+  ["Marco Montrano", "marlboro goal", 2026, ["CC"], 81, true],
   ["Riccardo Roscica", "marlboro goal", 2026, ["CC"], 64, false],
   ["Adriano Pio Darcangelo", "marlboro goal", 2026, ["ATT"], 73, false],
   ["Cosimo D'Onghia", "marlboro goal", 2026, ["ATT"], 75, false],
@@ -216,7 +216,7 @@ const DATA = [
   // REAL MYDRIP (Maglia Gialla)
   ["Vincenzo Russo", "real mydrip", 2026, ["POR"], 81, false],
   ["Stefano Di Lena", "real mydrip", 2026, ["DIF"], 66, false],
-  ["Marco Accetta", "real mydrip", 2026, ["DIF"], 82, false],
+  ["Marco Accetta", "real mydrip", 2026, ["DIF"], 82, true],
   ["Mario Mezzina", "real mydrip", 2026, ["DIF"], 64, false],
   ["Alessandro Solazzo", "real mydrip", 2026, ["CC"], 86, true],
   ["Giovanni Meuli", "real mydrip", 2026, ["CC"], 78, false],
@@ -230,112 +230,35 @@ const DATA = [
   ["Stefano Vidali", "trigloditi", 2026, ["DIF"], 77, false],
   ["Andrea Capuzzolo", "trigloditi", 2026, ["DIF"], 76, false],
   ["Francesco Albanese", "trigloditi", 2026, ["DIF"], 75, false],
-  ["Gianluca Chiappinelli", "trigloditi", 2026, ["CC"], 86, true],
+  ["Gianluca Chiappinelli", "trigloditi", 2026, ["CC"], 81, true],
   ["Francesco Santamaria", "trigloditi", 2026, ["CC"], 79, false],
   ["Raffaele Guerra", "trigloditi", 2026, ["ATT"], 78, false],
   ["Mattia Mavelli", "trigloditi", 2026, ["ATT", "DIF"], 72, false],
   ["Marco Amodio", "trigloditi", 2026, ["CC", "ATT"], 82, false],
 
   // IMPERIAL SEVEN (Maglia Verde)
-  ["Alessandro Guerra", "imperial seven", 2026, ["POR"], 84, false],
+  ["Alessandro Guerra", "imperial seven", 2026, ["POR"], 84, true],
   ["Fabiano Tafaro", "imperial seven", 2026, ["DIF"], 78, false],
   ["Mario Rizzo", "imperial seven", 2026, ["DIF"], 80, false],
-  ["Gabriele Ferrandino", "imperial seven", 2026, ["DIF"], 86, true],
+  ["Gabriele Ferrandino", "imperial seven", 2026, ["DIF", "CC"], 85, false],
   ["Antonio Iasiello", "imperial seven", 2026, ["CC"], 79, false],
   ["Matteo Sembenini", "imperial seven", 2026, ["CC"], 71, false],
   ["Flavio Carbone", "imperial seven", 2026, ["ATT"], 84, false],
   ["Antonio Fuzio", "imperial seven", 2026, ["ATT"], 77, false],
-  ["JJ Zigrino", "imperial seven", 2026, ["DIF", "CC", "ATT"], 85, false]
+  ["JJ Zigrino", "imperial seven", 2026, ["DIF", "CC", "ATT"], 86, true]
 ];
 
 const META = {
   "wild boys 2026": { pond: 80, bg: "#ffffff", text: "#800080", team: "Wild Boys", year: 2026, hito: "I ragazzi selvaggi" },
   "sangu FC 2026": { pond: 81, bg: "#000000", text: "#ff0000", team: "Sangu FC", year: 2026, hito: "Sangue, sudore e lacrime" },
   "marlboro goal 2026": { pond: 80, bg: "#ff0000", text: "#000000", team: "Marlboro Goal", year: 2026, hito: "Un polmone e mezzo a testa" },
-  "real mydrip 2026": { pond: 83, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Stile in campo, zero punti" },
+  "real mydrip 2026": { pond: 79, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Stile in campo, zero punti" },
   "trigloditi 2026": { pond: 79, bg: "#40e0d0", text: "#ffffff", team: "Trigloditi", year: 2026, hito: "Calcio d'altri tempi" },
   "imperial seven 2026": { pond: 82, bg: "#008000", text: "#ffffff", team: "Imperial Seven", year: 2026, hito: "I conquistatori del campetto" }
 };
 
-const RIVAL_DATA = [
-  // WILD BOYS
-  ["Pierluigi De Marco", "wild boys", 2026, ["POR"], 80],
-  ["Andrea Fundone", "wild boys", 2026, ["DIF"], 77],
-  ["Michele Scoppio", "wild boys", 2026, ["DIF"], 67],
-  ["Fabrizio Lorini", "wild boys", 2026, ["DIF"], 64],
-  ["Luigi Vaira", "wild boys", 2026, ["DIF"], 71], 
-  ["Alessandro del Giudice", "wild boys", 2026, ["CC"], 75],
-  ["Lorenzo Milfa", "wild boys", 2026, ["CC", "ATT"], 86],
-  ["Lorenzo Gentile", "wild boys", 2026, ["ATT"], 88],
-  ["Carlo Basile", "wild boys", 2026, ["ATT"], 64],
-  ["Domenico Jr. Centrone", "wild boys", 2026, ["DIF", "CC", "ATT"], 83],
-
-  // SANGU FC
-  ["Pasquale Iannelli", "sangu FC", 2026, ["POR"], 83],
-  ["Matteo Daniele", "sangu FC", 2026, ["DIF"], 83],
-  ["Gabriele Pedacchio", "sangu FC", 2026, ["DIF"], 70],
-  ["Gerardo Teutonico", "sangu FC", 2026, ["DIF"], 76],
-  ["Giovanni Corso", "sangu FC", 2026, ["DIF"], 63],
-  ["Daniel Sandu", "sangu FC", 2026, ["CC"], 81],
-  ["Mattia Ieva", "sangu FC", 2026, ["CC"], 87],
-  ["Mattia Pandolfi", "sangu FC", 2026, ["CC", "ATT"], 80],
-  ["Angelo Anatilopan", "sangu FC", 2026, ["ATT"], 73],
-  ["Dylan Todisco", "sangu FC", 2026, ["DIF", "CC", "ATT"], 78],
-
-  // MARLBORO GOAL
-  ["Gabriele Maci", "marlboro goal", 2026, ["POR"], 85],
-  ["Gianluca Audiello", "marlboro goal", 2026, ["DIF"], 63],
-  ["Cataldo Sapio", "marlboro goal", 2026, ["DIF"], 80],
-  ["Giuseppe Pepe", "marlboro goal", 2026, ["DIF"], 75],
-  ["Marco Montrano", "marlboro goal", 2026, ["CC"], 81],
-  ["Riccardo Roscica", "marlboro goal", 2026, ["CC"], 64],
-  ["Adriano Pio Darcangelo", "marlboro goal", 2026, ["ATT"], 73],
-  ["Cosimo D'Onghia", "marlboro goal", 2026, ["ATT"], 75],
-  ["Michele Ventola", "marlboro goal", 2026, ["CC", "ATT"], 89],
-
-  // REAL MYDRIP
-  ["Vincenzo Russo", "real mydrip", 2026, ["POR"], 81],
-  ["Stefano Di Lena", "real mydrip", 2026, ["DIF"], 66],
-  ["Marco Accetta", "real mydrip", 2026, ["DIF"], 82],
-  ["Mario Mezzina", "real mydrip", 2026, ["DIF"], 64],
-  ["Alessandro Solazzo", "real mydrip", 2026, ["CC"], 86],
-  ["Giovanni Meuli", "real mydrip", 2026, ["CC"], 78],
-  ["Manuel Flores", "real mydrip", 2026, ["ATT"], 85],
-  ["Mauro Origlia", "real mydrip", 2026, ["ATT"], 65],
-  ["Luigi Barbone", "real mydrip", 2026, ["DIF", "ATT", "CC"], 75],
-
-  // TRIGLODITI
-  ["Matia Shehu", "trigloditi", 2026, ["POR"], 77],
-  ["Luca Padovano", "trigloditi", 2026, ["DIF"], 78],
-  ["Stefano Vidali", "trigloditi", 2026, ["DIF"], 77],
-  ["Andrea Capuzzolo", "trigloditi", 2026, ["DIF"], 76],
-  ["Francesco Albanese", "trigloditi", 2026, ["DIF"], 75],
-  ["Gianluca Chiappinelli", "trigloditi", 2026, ["CC"], 81],
-  ["Francesco Santamaria", "trigloditi", 2026, ["CC"], 79],
-  ["Raffaele Guerra", "trigloditi", 2026, ["ATT"], 78],
-  ["Mattia Mavelli", "trigloditi", 2026, ["ATT", "DIF"], 72],
-  ["Marco Amodio", "trigloditi", 2026, ["CC", "ATT"], 82],
-
-  // IMPERIAL SEVEN
-  ["Alessandro Guerra", "imperial seven", 2026, ["POR"], 84],
-  ["Fabiano Tafaro", "imperial seven", 2026, ["DIF"], 78],
-  ["Mario Rizzo", "imperial seven", 2026, ["DIF"], 80],
-  ["Gabriele Ferrandino", "imperial seven", 2026, ["DIF", "CC"], 85],
-  ["Antonio Iasiello", "imperial seven", 2026, ["CC"], 79],
-  ["Matteo Sembenini", "imperial seven", 2026, ["CC"], 71],
-  ["Flavio Carbone", "imperial seven", 2026, ["ATT"], 84],
-  ["Antonio Fuzio", "imperial seven", 2026, ["ATT"], 77],
-  ["JJ Zigrino", "imperial seven", 2026, ["DIF", "CC", "ATT"], 86]
-];
-
-const RIVAL_META = {
-  "wild boys 2026": { pond: 80, bg: "#ffffff", text: "#800080", team: "Wild Boys", year: 2026, hito: "I ragazzi selvaggi" },
-  "sangu FC 2026": { pond: 81, bg: "#000000", text: "#ff0000", team: "Sangu FC", year: 2026, hito: "Sangue, sudore e lacrime" },
-  "marlboro goal 2026": { pond: 80, bg: "#ff0000", text: "#000000", team: "Marlboro Goal", year: 2026, hito: "Un polmone e mezzo a testa" },
-  "real mydrip 2026": { pond: 83, bg: "#ffff00", text: "#000000", team: "Real Mydrip", year: 2026, hito: "Stile in campo, zero punti" },
-  "trigloditi 2026": { pond: 79, bg: "#40e0d0", text: "#ffffff", team: "Trigloditi", year: 2026, hito: "Calcio d'altri tempi" },
-  "imperial seven 2026": { pond: 82, bg: "#008000", text: "#ffffff", team: "Imperial Seven", year: 2026, hito: "I conquistatori del campetto" }
-};
+const RIVAL_DATA = [...DATA];
+const RIVAL_META = {...META};
 
 const DTS_DATA = {
   "dts":[
@@ -351,7 +274,7 @@ const DTS_DATA = {
     "of":{"nombre":"Tutto all'attacco","desc":"+ Attacco","emoji":"⚔️"},
     "def":{"nombre":"Difesa a oltranza","desc":"+ Difesa","emoji":"🛡️"},
     "eq":{"nombre":"Equilibrato","desc":"+ Balance","emoji":"⚖️"},
-    "win":{"nombre":"Mentalità Vincente","desc":"+ Grinta e Rigori","emoji":"🔥"}
+    "win":{"nombre":"Mentalità Vincente","desc":"+ Grinta","emoji":"🔥"}
   }
 };
 
@@ -385,7 +308,6 @@ const FORM_SLOTS = {
   ]
 };
 
-
 const GRP_ORDER=['GK','DEF','MID','ATT'];
 const GRP_NAME={GK:'Portieri',DEF:'Difensori',MID:'Centrocampisti',ATT:'Attaccanti'};
 
@@ -413,8 +335,7 @@ function slotAccepts(p,slot){
   return playerGroups(p).includes(slot.grp);
 }
 
-let formation='321',dtStyle='equilibrato',chosenDT=null,rerolls=3,currentTeam=null,lineup={},chosenNames=new Set(),mustDraw=true,pendingPlayer=null,pendingGroup=null;
-function pkey(p){return p.name+'|'+p.team+'|'+p.year;}
+let formation='321',dtStyle='equilibrato',chosenDT=null,rerolls=3,currentTeam=null,lineup={},chosenNames=new Set(),mustDraw=true,pendingPlayer=null;
 
 document.getElementById('formSeg').addEventListener('click',e=>{if(e.target.dataset.f){formation=e.target.dataset.f;[...document.querySelectorAll('#formSeg button')].forEach(b=>b.classList.toggle('on',b.dataset.f===formation));lineup={};chosenNames=new Set();renderPitch();renderBox();renderPlayerList();}});
 function emptySlots(){return FORM_SLOTS[formation].filter(s=>!lineup[s.id]);}
@@ -483,7 +404,6 @@ function placePlayer(p,slotId){
   document.getElementById('sorteoArea').innerHTML='';
   renderPitch();renderBox();renderPlayerList();
 }
-function removeSlot(slotId){if(lineup[slotId]){chosenNames.delete(lineup[slotId].name);delete lineup[slotId];renderPitch();renderBox();renderPlayerList();}}
 
 function renderPitch(){
   const pitch=document.getElementById('pitch'),slots=FORM_SLOTS[formation],rows={0:[],1:[],2:[],3:[]};
@@ -536,16 +456,10 @@ function computeRatings(){
 function renderBox(){const r=computeRatings();document.getElementById('bsOverall').textContent=r.count?r.overall:'—';document.getElementById('bsAtk').textContent=r.count?r.attack:'—';document.getElementById('bsDef').textContent=r.count?r.defense:'—';document.getElementById('fillCount').textContent=r.count+'/'+FORM_SLOTS[formation].length;const list=document.getElementById('bsList');list.innerHTML='';FORM_SLOTS[formation].forEach(s=>{const p=lineup[s.id];const row=document.createElement('div');row.className='bs-row'+(p?'':' empty')+((p&&p.star)?' star-row':'');row.innerHTML=`<span class="bp">${s.lab}</span><span class="bn">${p?p.name:'—'}${(p&&p.star)?' <span class=\'star-badge\'>★</span>':''}</span><span class="bf">${p?p.force:''}</span>`;list.appendChild(row);});const full=r.count===FORM_SLOTS[formation].length;document.getElementById('simBtn').disabled=!full;document.getElementById('simHint').innerHTML=full?(r.chem>0?`Premi Simula · Chimica +${r.chem} 🔗`:'Squadra completa! Premi Simula.'):`Completa i ${FORM_SLOTS[formation].length} per simulare.`;}
 function poisson(lambda){const L=Math.exp(-lambda);let k=0,p=1;do{k++;p*=Math.random();}while(p>L);return k-1;}
 const RANKED=Object.entries(RIVAL_META).map(([k,m])=>({key:k,pond:m.pond,bg:m.bg,text:m.text,team:m.team,year:m.year})).sort((a,b)=>a.pond-b.pond);
-function pickRivalByPond(t,ex){
-  const cand=RANKED.filter(x=>!ex.has(x.key)).map(x=>({x,d:Math.abs(x.pond-t)})).sort((a,b)=>a.d-b.d);
-  if(cand.length===0)return null;
-  const top=cand.slice(0,2); 
-  return top[Math.floor(Math.random()*top.length)].x;
-}
-const GROUP_TARGETS=[80, 80, 80, 80, 80, 80];            
-const KO_DEFS=[];
-const DERROTEROS=["Fino a qui è arrivata la tua squadra.", "Usciti a testa alta.", "La palla è rotonda.", "Maledetti rigori..."];
+
+const DERROTEROS=["Fino a qui è arrivata la tua squadra.", "Usciti a testa alta.", "La palla è rotonda.", "Ci rifaremo il prossimo anno!"];
 function derrotero(){return DERROTEROS[Math.floor(Math.random()*DERROTEROS.length)];}
+
 function playMatch(myAtk,myDef,rf,koMode){
   const lamFor=Math.max(0.14,1.15+(myAtk-rf)*0.060),lamAg=Math.max(0.16,1.55+(rf-myDef)*0.085);
   let gFor=poisson(lamFor),gAg=poisson(lamAg);
@@ -572,87 +486,96 @@ function openDTPick(){
   });
   document.getElementById('dtPicker').classList.add('show');
 }
+
 function simulate() {
-  const r = computeRatings(), myAtk = r.attack, myDef = r.defense;
-  let matches = [];
-  const used = new Set();
-  let pts = 0, gGF = 0, gGA = 0;
-  
-  // Il ciclo fa 6 partite, una per ogni avversario
-  for(let i = 0; i < 6; i++) {
-    const rival = pickRivalByPond(80, used);
-    if (!rival) break;
-    used.add(rival.key);
-    
-    const m = playMatch(myAtk, myDef, rival.pond, false);
-    gGF += m.gFor; gGA += m.gAg;
-    
-    if(m.adv === true) pts += 3;
-    else if(m.adv === null) pts += 1;
-    
-    matches.push({
-      phase: 'Giornata ' + (i + 1),
-      rival: rival.team,
-      gf: m.gFor, ga: m.gAg,
-      outcome: m.adv === true ? 'win' : (m.adv === false ? 'lost' : 'draw'),
-      advanced: true
-    });
+  if (Object.keys(RIVAL_META).length < 6) {
+     alert("ATTENZIONE: Mancano squadre in RIVAL_META per simulare le 6 partite!");
+     return;
   }
 
-  // Risultato finale
-  let pos = pts >= 15 ? 1 : (pts >= 12 ? 2 : (pts >= 9 ? 3 : 4));
+  const r = computeRatings(), myAtk = r.attack, myDef = r.defense;
+  let gf = 0, ga = 0, matches = [];
   
+  let pts = 0, gWins = 0, gDraws = 0, gLoss = 0, gGF = 0, gGA = 0;
+  const groupRivals = []; 
+
+  // Inizializziamo le statistiche di classifica per tutte le 6 squadre rivali
+  Object.entries(RIVAL_META).forEach(([key, m]) => {
+    groupRivals.push({
+      key: key,
+      name: m.team + ' ' + m.year,
+      bg: m.bg,
+      text: m.text,
+      pond: m.pond,
+      pts: 0,
+      dg: 0,
+      gf: 0
+    });
+  });
+
+  // 1. SIMULAZIONE DELLE 6 PARTITE CONTRO TUTTE LE SQUADRE
+  groupRivals.forEach((rival, i) => {
+    const m = playMatch(myAtk, myDef, rival.pond, false);
+    
+    gf += m.gFor; ga += m.gAg;
+    gGF += m.gFor; gGA += m.gAg;
+    
+    let outcome, rivalPts;
+    if (m.adv === true) {
+      pts += 3; gWins++; outcome = 'win'; rivalPts = 0;
+    } else if (m.adv === false) {
+      gLoss++; outcome = 'lost'; rivalPts = 3;
+    } else {
+      pts += 1; gDraws++; outcome = 'draw'; rivalPts = 1;
+    }
+
+    rival.pts += rivalPts;
+    rival.dg += (m.gAg - m.gFor);
+    rival.gf += m.gAg;
+
+    matches.push({
+      phase: 'Giornata ' + (i + 1) + ' · Campionato',
+      rival: rival.name,
+      rkey: rival.key,
+      gf: m.gFor,
+      ga: m.gAg,
+      pen: false,
+      outcome,
+      advanced: (outcome !== 'lost'),
+      scorers: pickScorers(m.gFor),
+      rivalScorers: pickRivalScorers(rival.key, m.gAg)
+    });
+  });
+
+  // 2. SIMULAZIONE DELLE PARTITE TRA I RIVALI (Classifica di background)
+  groupRivals.forEach(rival => {
+    for (let p = 0; p < 5; p++) {
+      const puntiCasuali = [0, 1, 3][Math.floor(Math.random() * 3)];
+      rival.pts += puntiCasuali;
+      rival.dg += (Math.floor(Math.random() * 5) - 2);
+      rival.gf += Math.floor(Math.random() * 4);
+    }
+  });
+
+  // 3. COSTRUZIONE E ORDINAMENTO DELLA CLASSIFICA FINALE
+  const me = { name: 'LA TUA SQUADRA', pts, dg: gGF - gGA, gf: gGF, isMe: true };
+  const table = [me, ...groupRivals].sort((a, b) => b.pts - a.pts || b.dg - a.dg || b.gf - a.gf);
+  const myPos = table.findIndex(x => x.isMe) + 1;
+  const champion = (myPos === 1);
+
   showResults({
-    gf: gGF, ga: gGA, matches, champion: (pos === 1), overall: r.overall,
-    group: { pts, pos: pos, classified: true },
+    gf, ga, matches, champion, overall: r.overall,
+    group: {
+      pts, wins: gWins, draws: gDraws, loss: gLoss, gf: gGF, ga: gGA, 
+      pos: myPos, classified: champion, table: table
+    },
     koWins: 0
   });
 }
-  const r=computeRatings(),myAtk=r.attack,myDef=r.defense;
-  let gf=0,ga=0,matches=[];const used=new Set();
-  let pts=0,gWins=0,gDraws=0,gLoss=0,gGF=0,gGA=0;
-  const groupRivals=[]; 
-  GROUP_TARGETS.forEach((t,i)=>{
-    const rival=pickRivalByPond(t,used);used.add(rival.key);
-    const m=playMatch(myAtk,myDef,rival.pond,false);
-    gf+=m.gFor;ga+=m.gAg;gGF+=m.gFor;gGA+=m.gAg;
-    let outcome,rivalPts;
-    if(m.adv===true){pts+=3;gWins++;outcome='win';rivalPts=0;}
-    else if(m.adv===false){gLoss++;outcome='lost';rivalPts=3;}
-    else{pts+=1;gDraws++;outcome='draw';rivalPts=1;}
-    const extra=[0,1,3][Math.floor(Math.random()*3)]+[0,1,3][Math.floor(Math.random()*3)];
-    groupRivals.push({name:rival.team+' '+rival.year,bg:rival.bg,text:rival.text,
-      pts:rivalPts+extra, dg:(m.gAg-m.gFor)+(Math.floor(Math.random()*5)-2), gf:m.gAg+Math.floor(Math.random()*4)});
-    matches.push({phase:'Giornata '+(i+1)+' · Gironi',rival:rival.team+' '+rival.year,rkey:rival.key,
-      gf:m.gFor,ga:m.gAg,pen:false,outcome,advanced:(outcome!=='lost'),
-      scorers:pickScorers(m.gFor),rivalScorers:pickRivalScorers(rival.key,m.gAg)});
-  });
-  const me={name:'LA TUA SQUADRA',pts,dg:gGF-gGA,gf:gGF,isMe:true};
-  const table=[me,...groupRivals].sort((a,b)=> b.pts-a.pts || b.dg-a.dg || b.gf-a.gf);
-  const myPos=table.findIndex(x=>x.isMe)+1;
-  const classified = myPos<=2; 
 
-  let champion=false;
-  if(classified){
-    for(const ph of KO_DEFS){
-      const rival=pickRivalByPond(ph.pondTarget,used);used.add(rival.key);
-      const m=playMatch(myAtk,myDef,rival.pond,true);
-      gf+=m.gFor;ga+=m.gAg;
-      matches.push({phase:ph.name,rival:rival.team+' '+rival.year,rkey:rival.key,
-        gf:m.gFor,ga:m.gAg,pen:m.pen,penScore:m.penScore,advanced:m.adv,
-        scorers:pickScorers(m.gFor),rivalScorers:pickRivalScorers(rival.key,m.gAg)});
-      if(!m.adv)break;
-    }
-    champion = matches.filter(x=>KO_DEFS.some(k=>k.name===x.phase)).length===2 &&
-               matches.filter(x=>KO_DEFS.some(k=>k.name===x.phase)).every(x=>x.advanced);
-  }
-  const koWins=matches.filter(m=>KO_DEFS.some(k=>k.name===m.phase)&&m.advanced).length;
-  showResults({gf,ga,matches,champion,overall:r.overall,
-    group:{pts,wins:gWins,draws:gDraws,loss:gLoss,gf:gGF,ga:gGA,pos:myPos,classified,table},
-    koWins});
-}
 function pickScorers(n){const pool=[];FORM_SLOTS[formation].forEach(s=>{const p=lineup[s.id];if(!p)return;let w=1;if(s.grp==='ATT')w=5;else if(s.grp==='MID')w=3;else if(s.grp==='DEF')w=1;else w=0.2;for(let i=0;i<w*10;i++)pool.push(p.name);});const out=[];for(let i=0;i<n;i++)out.push(pool[Math.floor(Math.random()*pool.length)]);return out;}
 function pickRivalScorers(rivalKey,n){if(n<=0)return [];const squad=rivalMap[rivalKey]||[];const pool=[];squad.forEach(p=>{let w=1;const g=playerGroups(p);if(g.includes('ATT'))w=5;else if(g.includes('MID'))w=3;else if(g.includes('DEF'))w=1;else w=0.3;for(let i=0;i<w*10;i++)pool.push(p.name);});if(pool.length===0)return [];const out=[];for(let i=0;i<n;i++)out.push(pool[Math.floor(Math.random()*pool.length)]);return out;}
+
 function showResults(res){
   const box=document.getElementById('resultsBox');let html='';
   html+=`<div style="text-align:center;font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--red);font-size:1.15rem;font-weight:700;margin-bottom:6px;letter-spacing:.12em">Young Cup Simulator</div>`;
@@ -660,38 +583,31 @@ function showResults(res){
     let premios=[];
     if(res.ga===0)premios.push('PORTA INVIOLATA 🧱');
     if(res.gf>=15)premios.push('GOLEADOR (+15) ⚽');
-    const subt=premios.length?premios.join(' · '):'HAI VINTO IL TORNEO';
+    const subt=premios.length?premios.join(' · '):'CAMPIONE DEL CAMPIONATO';
     html+=`<div class="res-champ">CAMPIONE<small>${subt}</small></div>`;
-  } else if(!res.group.classified){
-    html+=`<div class="res-final" style="font-size:2.2rem">${res.group.pos}°<span style="color:var(--ink)"> nel girone</span></div><p style="text-align:center;font-family:'Barlow Condensed';font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Eliminato ai gironi</p><div style="text-align:center;font-family:'Barlow Condensed';font-style:italic;color:#7a7158;font-size:.92rem;background:#f0e9d8;border-radius:6px;padding:8px 10px;margin-bottom:8px">${derrotero()}</div>`;
   } else {
-    const lastKO=res.matches[res.matches.length-1];
-    const reached=lastKO.phase;
-    html+=`<div class="res-final" style="font-size:2.2rem">${reached}</div><p style="text-align:center;font-family:'Barlow Condensed';font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Eliminato in ${reached.toLowerCase()}</p><div style="text-align:center;font-family:'Barlow Condensed';font-style:italic;color:#7a7158;font-size:.92rem;background:#f0e9d8;border-radius:6px;padding:8px 10px;margin-bottom:8px">${derrotero()}</div>`;
+    html+=`<div class="res-final" style="font-size:2.2rem">${res.group.pos}°<span style="color:var(--ink)"> in classifica</span></div><p style="text-align:center;font-family:'Barlow Condensed';font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Campionato Concluso</p><div style="text-align:center;font-family:'Barlow Condensed';font-style:italic;color:#7a7158;font-size:.92rem;background:#f0e9d8;border-radius:6px;padding:8px 10px;margin-bottom:8px">${derrotero()}</div>`;
   }
-  html+=`<div class="res-stats"><div><b>${res.gf}</b><span>Gol Fatti</span></div><div><b>${res.ga}</b><span>Subiti</span></div><div><b>${res.overall}</b><span>Overall</span></div><div><b>${res.group.pts}</b><span>Pti Girone</span></div></div>`;
+  html+=`<div class="res-stats"><div><b>${res.gf}</b><span>Gol Fatti</span></div><div><b>${res.ga}</b><span>Subiti</span></div><div><b>${res.overall}</b><span>Overall</span></div><div><b>${res.group.pts}</b><span>Punti</span></div></div>`;
 
-  html+=`<div style="font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#8a8067;margin:6px 0 4px">Classifica del Girone ${res.group.classified?'· Qualificato ✓':'· Non qualificato ✗'}</div>`;
+  html+=`<div style="font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.8rem;color:#8a8067;margin:6px 0 4px">Classifica Finale Generale</div>`;
   html+=`<div style="background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:12px">`;
   html+=`<div style="display:flex;font-family:'Barlow Condensed';font-weight:700;font-size:.72rem;color:#8a8067;padding:5px 10px;border-bottom:1px solid #eee"><span style="width:20px">#</span><span style="flex:1">Squadra</span><span style="width:34px;text-align:center">Pti</span><span style="width:34px;text-align:center">DG</span></div>`;
   res.group.table.forEach((t,i)=>{
     const me=t.isMe;
-    html+=`<div style="display:flex;align-items:center;padding:5px 10px;${me?'background:#eaf3fb;font-weight:700':''};${i<2?'':'opacity:.7'}"><span style="width:20px;font-family:'Anton';color:${i<2?'var(--green)':'#999'}">${i+1}</span><span style="flex:1">${me?'LA TUA SQUADRA':t.name}</span><span style="width:34px;text-align:center;font-family:'Anton'">${t.pts}</span><span style="width:34px;text-align:center">${t.dg>=0?'+':''}${t.dg}</span></div>`;
+    html+=`<div style="display:flex;align-items:center;padding:5px 10px;${me?'background:#eaf3fb;font-weight:700':''};${i<1?'':'opacity:.7'}"><span style="width:20px;font-family:'Anton';color:${i<1?'var(--green)':'#999'}">${i+1}</span><span style="flex:1">${me?'LA TUA SQUADRA':t.name}</span><span style="width:34px;text-align:center;font-family:'Anton'">${t.pts}</span><span style="width:34px;text-align:center">${t.dg>=0?'+':''}${t.dg}</span></div>`;
   });
   html+=`</div>`;
 
   res.matches.forEach(m=>{
-    const isKO=KO_DEFS.some(k=>k.name===m.phase);
-    const win=m.advanced;
     let cls='match',mark='';
-    if(m.outcome==='win'||(isKO&&win)){cls='match';mark=' ✓';}
+    if(m.outcome==='win'){cls='match';mark=' ✓';}
     else if(m.outcome==='draw'){cls='match';mark=' =';}
     else{cls='match lost';mark=' ✗';}
-    const scoreCls=(m.outcome==='lost'||(isKO&&!win))?'lost':(m.outcome==='draw'?'':'win');
-    html+=`<div class="${cls}"><div class="mh"><div><div class="mphase">${m.phase}${m.pen?' · DECISA AI RIGORI':''}</div><div class="mrival">vs ${m.rival}</div></div><div class="mscore ${scoreCls}">${m.gf}-${m.ga}${mark}</div></div>`;
+    const scoreCls=(m.outcome==='lost')?'lost':(m.outcome==='draw'?'':'win');
+    html+=`<div class="${cls}"><div class="mh"><div><div class="mphase">${m.phase}</div><div class="mrival">vs ${m.rival}</div></div><div class="mscore ${scoreCls}">${m.gf}-${m.ga}${mark}</div></div>`;
     if(m.scorers.length)html+=`<div class="mgoals">⚽ ${m.scorers.join(', ')}</div>`;
     if(m.rivalScorers&&m.rivalScorers.length)html+=`<div class="mgoals" style="color:var(--ink)">Subiti: ${m.rivalScorers.join(', ')}</div>`;
-    if(m.pen)html+=`<div class="mgoals" style="font-weight:700">Rigori: ${m.penScore} ${win?'(Passi il turno)':'(Eliminato)'}</div>`;
     html+=`</div>`;
   });
   html+=`<button class="close-btn" style="background:var(--red);margin-top:8px" onclick="showSquad()">VEDI LA MIA SQUADRA →</button>`;
@@ -700,16 +616,16 @@ function showResults(res){
   box.innerHTML=html;document.getElementById('overlay').classList.add('show');
   window._lastRes=res;
 }
+
 function showSquad(){
   const res=window._lastRes||{};
   const box=document.getElementById('resultsBox');
   const r=computeRatings();
   let html=`<div style="text-align:center;font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--red);font-size:1.15rem;font-weight:700;margin-bottom:8px;letter-spacing:.12em">Young Cup Simulator</div>`;
   if(chosenDT){html+=`<div style="text-align:center;font-family:'Barlow Condensed';font-size:1.15rem;color:var(--red);font-weight:700;margin-bottom:10px;letter-spacing:.05em">Mister: ${chosenDT.name}</div>`;}
-  if(res.champion){html+=`<div class="res-champ" style="font-size:2rem">CAMPIONE<small>HAI VINTO IL TORNEO${res.ga===0?' · INVICTO':''}</small></div>`;}
-  else if(res.group&&!res.group.classified){html+=`<div class="res-final" style="font-size:2rem">${res.group.pos}° nel girone</div>`;}
-  else{const last=res.matches[res.matches.length-1];html+=`<div class="res-final" style="font-size:2rem">${last.phase}</div>`;}
-  html+=`<div class="res-stats" style="margin:10px 0 14px"><div><b>${res.gf}</b><span>Fatti</span></div><div><b>${res.ga}</b><span>Subiti</span></div><div><b>${r.overall}</b><span>Overall</span></div><div><b>${res.group?res.group.pts:0}</b><span>Pti Girone</span></div></div>`;
+  if(res.champion){html+=`<div class="res-champ" style="font-size:2rem">CAMPIONE<small>CAMPIONATO CONCLUSO AL 1° POSTO</small></div>`;}
+  else{html+=`<div class="res-final" style="font-size:2rem">${res.group?res.group.pos:0}° Posto Finale</div>`;}
+  html+=`<div class="res-stats" style="margin:10px 0 14px"><div><b>${res.gf}</b><span>Fatti</span></div><div><b>${res.ga}</b><span>Subiti</span></div><div><b>${r.overall}</b><span>Overall</span></div><div><b>${res.group?res.group.pts:0}</b><span>Punti</span></div></div>`;
   html+=`<div style="display:flex;flex-direction:column;gap:4px">`;
   FORM_SLOTS[formation].forEach(s=>{
     const p=lineup[s.id];if(!p)return;
@@ -735,9 +651,8 @@ function closeResults(){document.getElementById('overlay').classList.remove('sho
 function shareResult(){
   const res=window._lastRes||{};const r=computeRatings();
   let logro;
-  if(res.champion){logro='Ho VINTO il torneo della Young Cup'+(res.ga===0?' (INVICTO)!':'!');}
-  else if(res.group&&!res.group.classified){logro='Uscito '+res.group.pos+'° ai gironi.';}
-  else{const last=res.matches[res.matches.length-1];logro='Sono arrivato in '+last.phase+'.';}
+  if(res.champion){logro='Ho VINTO il campionato della Young Cup!';}
+  else{logro='Finito al '+res.group.pos+'° posto generale.';}
   const dt=chosenDT?(' Mister: '+chosenDT.name+'.'):'';
   const txt='🏆 Young Cup Draft Simulator\nHo creato il mio 7 ideale (Overall '+r.overall+').'+dt+' '+logro+'\nVuoi sfidarmi?';
   if(navigator.share){navigator.share({title:'Young Cup Draft',text:txt}).catch(()=>{});}
